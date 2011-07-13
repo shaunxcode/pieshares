@@ -88,6 +88,7 @@
 		}
 
 		#ProjectTasks { 
+			float: right;
 			padding:.5em;
 			width: 400px;
 		}
@@ -192,7 +193,7 @@
 							$('<div />')
 								.addClass('TaskTitle')
 								.text(name)
-								.click(PS._nameEditor(self)))
+								.dblclick(PS._nameEditor(self)))
 				},
 
 				newTask: function(taskEl) {
@@ -213,7 +214,7 @@
 							$('<div />')
 								.addClass('ActionTitle')
 								.text(name)
-								.click(PS._nameEditor(self)))
+								.dblclick(PS._nameEditor(self)))
 				},
 
 				newAction: function(task, actionEl) {
@@ -234,7 +235,7 @@
 							$('<div />')
 								.addClass('WorkTitle')
 								.text(name)
-								.click(PS._nameEditor(self)))
+								.dblclick(PS._nameEditor(self)))
 				},
 
 				newWork: function(action, workEl) {
@@ -263,7 +264,8 @@
 									$('<ul />')
 										.sortable({
 											revert: true, 
-											items: '> li:not(.FirstActionItem)'
+											items: '> li:not(.FirstActionItem)', 
+											connectWith: '.Actions'
 										})
 										.droppable({
 											accept: '.Action',
@@ -278,7 +280,8 @@
 															$('<ul />')
 																.sortable({
 																	revert: true,
-																	items: '> li:not(.FirstWorkItem)'
+																	items: '> li:not(.FirstWorkItem)',
+																	connectWith: '.Works'
 																})
 																.droppable({
 																	accept: '.Work',
