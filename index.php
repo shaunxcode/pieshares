@@ -123,11 +123,17 @@
 		}
 
 		.TaskTitle { 
-			float: left; 
+			float: left;
+			width: 75%; 
 		}
 
 		.TaskTitle input {
 			font-size: inherit;
+			width: 100%;
+			font-family: inherit;
+			padding: 2px; 
+			border: 0;
+			background: #FFFFCC;
 		}
 
 		.TaskExpandCollapse { 
