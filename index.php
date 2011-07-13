@@ -134,6 +134,7 @@
 		.ProjectName {
 			font-weight: bold;
 			text-align: center;
+			cursor: pointer;
 		}
 
 		.TaskTitle, .ActionTitle, .WorkTitle { 
@@ -143,11 +144,12 @@
 
 		input.NameInput {
 			font-size: inherit;
-			width: 100%;
+			width: inherit;
+			height: inherit;
 			font-family: inherit;
-			padding: 2px; 
 			border: 0;
 			background: #FFFFCC;
+			text-align: inherit;
 		}
 
 		.TaskExpandCollapse { 
@@ -180,6 +182,7 @@
 		$(function(){
 			PS = {
 				localTaskId: 0,
+				name: 'Project Name',
 				tasks: {},
 				actions: {},
 				works: {},
@@ -192,6 +195,7 @@
 								.html(
 									$('<input />')
 										.addClass('NameInput')
+										.css({height: $(this).height(), overflow: 'hidden'})
 										.val(self.name)
 										.blur(function(){
 											$(this).replaceWith(self.name);
@@ -393,7 +397,7 @@
 				$('#WorkSpace').scrollTo('#ContributionsSection', 800);
 			})
 
-
+			$('.ProjectName h1').click(PS._nameEditor(PS));
 		});
 
 	</script>
