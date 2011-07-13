@@ -19,9 +19,22 @@
 			height: 100%;
 		}
 
-		#Header {
+		#Header { 
+			background-image: url(images/gradient-slice.png);
+			background-repeat: repeat-x;
+			height:85px;
+		}
+
+		#Header .container {
+
 			margin-top: 1em;
 			margin-bottom: 1em;
+		}
+
+		#Footer { 
+			background-image: url(images/gradient-slice-footer.png);
+			background-repeat: repeat-x;
+			height:49px;
 		}
 
 		#Sidebar {
@@ -31,8 +44,13 @@
 
 		#Sidebar h3 {;
 			margin: 0;
-			padding: 0;	
+			padding: 0;
+			padding-left: 12px;
+			padding-top: 8px;	
 			cursor: pointer;
+			background-image: url(images/menu-header-bg1.png);
+			height:26px;
+			margin-top:1em;
 		}
 
 		UL.Tasks { 
@@ -135,6 +153,7 @@
 			font-weight: bold;
 			text-align: center;
 			cursor: pointer;
+			margin-top: 1.5em;
 		}
 
 		.TaskTitle, .ActionTitle, .WorkTitle { 
@@ -175,6 +194,11 @@
 
 		.SectionInner {
 			padding-left: 5px;
+		}
+
+		#UserSettingsMenu {
+			text-align: right;
+			padding-right: 15px;
 		}
 	</style>
 	<script>
@@ -403,13 +427,18 @@
 	</script>
 </head>
 <body>
-	<div class="container" id="AppContainer">
-		<div class="span-24 first last" id="Header">
-			<div class="span-4 first"><h1>PieShares</h1></div>
-			<div class="span-17 ProjectName"><h1>Project Name</h1></div>
-			<div class="span-3 last">Settings/User/Exit</div>
+	<div id="Header">
+		<div class="container">
+			<div class="span-4 first"><img src="images/logo-1.png" alt="PieShares"/></div>
+			<div class="span-16 ProjectName"><h1>Project Name</h1></div>
+			<div class="span-4 last">
+				<div id="UserSettingsMenu">Settings | User | Exit</div>
+			</div>
 		</div>
-		<div class="span-4 first" id="Sidebar">		
+	</div>
+
+	<div class="container" id="AppContainer">
+		<div class="span-4 first last" id="Sidebar">		
 			<h3 id="ProjectMenuHeading">Project</h3>
 			<div id="ProjectMenu">Project name etc.</div>
 			<h3 id="UsersMenuHeading">Users</h3>
@@ -452,7 +481,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="clear"></div>
 	</div>
+	<div id="Footer"></div>	
 </body>
 </html>
