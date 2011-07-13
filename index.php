@@ -15,12 +15,21 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="style/blueprint/screen.css" type="text/css" media="all" />
 	<style>
+		#AppContainer { 
+			height: 100%;
+		}
+
 		#Header {
 			margin-top: 1em;
 			margin-bottom: 1em;
 		}
 
-		#Sidebar h3 {
+		#Sidebar {
+			position: relative;
+			height: 100%;
+		}
+
+		#Sidebar h3 {;
 			margin: 0;
 			padding: 0;	
 			cursor: pointer;
@@ -71,6 +80,7 @@
 		#TemplatesContainer { 
 			position: fixed;
 			top: 22%;
+			padding-left: 5px;
 		}
 
 
@@ -147,6 +157,10 @@
 
 		#WorkSpace { 
 			overflow: hidden;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			width: 788;
+			height: 100%;
 		}
 
 		#InnerWorkSpace { 
@@ -157,6 +171,9 @@
 			float: left;
 		}
 
+		.SectionInner {
+			padding-left: 5px;
+		}
 	</style>
 	<script>
 		var PS;
@@ -382,13 +399,13 @@
 	</script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="AppContainer">
 		<div class="span-24 first last" id="Header">
 			<div class="span-4 first"><h1>PieShares</h1></div>
 			<div class="span-17 ProjectName"><h1>Project Name</h1></div>
 			<div class="span-3 last">Settings/User/Exit</div>
 		</div>
-		<div class="span-4 first" id="Sidebar">
+		<div class="span-4 first" id="Sidebar">		
 			<h3 id="ProjectMenuHeading">Project</h3>
 			<div id="ProjectMenu">Project name etc.</div>
 			<h3 id="UsersMenuHeading">Users</h3>
@@ -420,13 +437,18 @@
 					</div>
 				</div>
 				<div id="UsersSection" class="span-20 first last Section">
+					<div class="SectionInner">
 					Stuff about users
+					</div>
 				</div>
 				<div id="ContributionsSection" class="span-20 first last Section">
+					<div class="SectionInner">
 					Stuff about contributions
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="clear"></div>
 	</div>
 </body>
 </html>
