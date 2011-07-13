@@ -27,8 +27,7 @@
 
 		#Header .container {
 
-			margin-top: 1em;
-			margin-bottom: 1em;
+			
 		}
 
 		#Footer { 
@@ -51,6 +50,15 @@
 			background-image: url(images/menu-header-bg1.png);
 			height:26px;
 			margin-top:1em;
+			font-size: 16px;
+			color: #4e4e4e;
+			font-weight: bold;
+			margin-bottom:5px;
+		}
+
+		#SideBar ul {
+			list-style-type: none;	
+			padding-left: 10px;
 		}
 
 		UL.Tasks { 
@@ -150,10 +158,36 @@
 		}
 
 		.ProjectName {
+			position: relative;
 			font-weight: bold;
+			overflow: hidden;
+			height: 85px;
+		}
+
+		.ProjectName h1 {
+			padding:5px;
+			padding-left:20px;
+			padding-right: 20px;
+			position: relative;
+			font-size: 25px;
+			top: 48px;
+			margin: 0;
 			text-align: center;
 			cursor: pointer;
-			margin-top: 1.5em;
+			width: 200px;
+			margin-left: auto;
+			margin-right: auto;
+			
+			color: #4e4e4e;
+			-webkit-border-top-left-radius: 5px;
+			-webkit-border-top-right-radius: 5px;
+			-moz-border-radius-topleft: 5px;
+			-moz-border-radius-topright: 5px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border: 1px solid #ccc;
+			background: #fff;
+						
 		}
 
 		.TaskTitle, .ActionTitle, .WorkTitle { 
@@ -186,6 +220,8 @@
 
 		#InnerWorkSpace { 
 			width: 2370px;
+			background: #ebedf0;
+			height: 100%;
 		}
 
 		.Section { 
@@ -198,7 +234,13 @@
 
 		#UserSettingsMenu {
 			text-align: right;
+			padding-top:45px;
 			padding-right: 15px;
+		}
+
+		#UserSettingsMenu img {
+			margin-left: 3px;
+			cursor: pointer;
 		}
 	</style>
 	<script>
@@ -219,7 +261,10 @@
 								.html(
 									$('<input />')
 										.addClass('NameInput')
-										.css({height: $(this).height(), overflow: 'hidden'})
+										.css({
+											height: $(this).height(), 
+											width: $(this).width(), 
+											overflow: 'hidden'})
 										.val(self.name)
 										.blur(function(){
 											$(this).replaceWith(self.name);
@@ -432,16 +477,30 @@
 			<div class="span-4 first"><img src="images/logo-1.png" alt="PieShares"/></div>
 			<div class="span-16 ProjectName"><h1>Project Name</h1></div>
 			<div class="span-4 last">
-				<div id="UserSettingsMenu">Settings | User | Exit</div>
+				<div id="UserSettingsMenu">
+					<img src="images/icon-user.png" alt="profile" />
+					<img src="images/icon-settings.png" alt="settings" />
+					<img src="images/icon-exit.png" alt="logout" />
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="container" id="AppContainer">
 		<div class="span-4 first last" id="Sidebar">		
-			<h3 id="ProjectMenuHeading">Project</h3>
-			<div id="ProjectMenu">Project name etc.</div>
-			<h3 id="UsersMenuHeading">Users</h3>
+			<h3 id="ProjectMenuHeading">Project Details</h3>
+				<div id="ProjectMenu">
+					<ul>
+						<li>Overview</li>
+						<li>Task Tree</li>
+						<li>Users(n)</li>
+						<li>Items<ul>
+							<li>Tasks(n)</li>
+							<li>Actions(n)</li>
+							<li>Work(n)</li></ul><li>
+					</ul>
+				</div>
+			<h3 id="UsersMenuHeading">Active Users</h3>
 			<div id="UserMenu">
 				<ul><li>username</li><li>username</li></ul>
 			</div>
