@@ -11,6 +11,7 @@
 	<title>PieShares</title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="jquery.scrollTo-min.js"></script>
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="style/blueprint/screen.css" type="text/css" media="all" />
 	<style>
@@ -22,6 +23,7 @@
 		#Sidebar h3 {
 			margin: 0;
 			padding: 0;	
+			cursor: pointer;
 		}
 
 		UL.Tasks { 
@@ -66,10 +68,11 @@
 			font-size: 110%;
 		}
 
-		#ItemTemplates { 
+		#TemplatesContainer { 
 			position: fixed;
-			top: 33%;
+			top: 22%;
 		}
+
 
 		#ItemTemplates li > div { 
 			text-align: right;
@@ -141,6 +144,19 @@
 			float: right; 
 			font-size: 75%;
 		}
+
+		#WorkSpace { 
+			overflow: hidden;
+		}
+
+		#InnerWorkSpace { 
+			width: 2370px;
+		}
+
+		.Section { 
+			float: left;
+		}
+
 	</style>
 	<script>
 		var PS;
@@ -338,7 +354,31 @@
 				});
 
 			//$('ul, li').disableSelection();
-		})
+			var collapseTemplates = function() {
+				$('#ItemTemplates').css('overflow', 'hidden').animate({width: 0}, 200);
+			};
+
+			var expandTemplates = function() {
+				$('#ItemTemplates').css('overflow', 'visible').animate({width: 190}, 300)
+			};
+
+			$('#ProjectMenuHeading').click(function(){
+				$('#WorkSpace').scrollTo('#ProjectSection', 800, {onAfter: expandTemplates});
+			});
+
+			$('#UsersMenuHeading').click(function(){
+				collapseTemplates();
+				$('#WorkSpace').scrollTo('#UsersSection', 800);
+			});
+
+			$('#ContributionsMenuHeading').click(function(){
+				collapseTemplates();
+				$('#WorkSpace').scrollTo('#ContributionsSection', 800);
+			})
+
+
+		});
+
 	</script>
 </head>
 <body>
@@ -349,30 +389,42 @@
 			<div class="span-3 last">Settings/User/Exit</div>
 		</div>
 		<div class="span-4 first" id="Sidebar">
-			<h3>Project</h3>
+			<h3 id="ProjectMenuHeading">Project</h3>
 			<div id="ProjectMenu">Project name etc.</div>
-			<h3>Users</h3>
+			<h3 id="UsersMenuHeading">Users</h3>
 			<div id="UserMenu">
 				<ul><li>username</li><li>username</li></ul>
 			</div>
-			<h3>Contributions</h3>
+			<h3 id="ContributionsMenuHeading">Contributions</h3>
 			<div id="ContributionMenu">
 				<ul><li>Type of contrib.</li><li>Type of Contrib.</li></ul>
 			</div>
 		</div>
-		<div class="span-20 last">
-			<div class="span-5 first">
-		   	 &nbsp;
-				<ul id="ItemTemplates" class="Tasks clear">
-					<li class="Task"><div>Top Level Task</div></li>
-					<li class="Action"><div>Action Name</div></li>
-					<li class="Work"><div>Work Item</div></li>
-				</ul>
-			</div>
-			<div class="span-15 last">
-				<ul id="ProjectTasks" class="Tasks">
-					<li class="FirstItem">Drag first task here</li>
-				</ul>
+		<div id="WorkSpace" class="span-20 last">
+			<div id="InnerWorkSpace">
+				<div id="ProjectSection" class="span-20 first last Section">
+					<div class="span-5 first">
+				   	 	&nbsp;
+				   	 	<div id="TemplatesContainer">
+							<ul id="ItemTemplates" class="Tasks clear">
+								<li class="Task"><div>Top Level Task</div></li>
+								<li class="Action"><div>Action Name</div></li>
+								<li class="Work"><div>Work Item</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="span-15 last">
+						<ul id="ProjectTasks" class="Tasks">
+							<li class="FirstItem">Drag first task here</li>
+						</ul>
+					</div>
+				</div>
+				<div id="UsersSection" class="span-20 first last Section">
+					Stuff about users
+				</div>
+				<div id="ContributionsSection" class="span-20 first last Section">
+					Stuff about contributions
+				</div>
 			</div>
 		</div>
 	</div>
