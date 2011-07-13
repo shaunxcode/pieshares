@@ -34,6 +34,10 @@
 			margin-top: .5em;
 		}
 
+		UL.Works {
+			margin-top: .5em;
+		}
+
 		li.Task > div {
 			height: 2.5em;
 			background: #fff;
@@ -92,6 +96,13 @@
 			font-size: 120%;
 		}
 
+		#ProjectTasks li.FirstWorkItem {
+			border: 1px dashed #000;
+			height: 2.25em;
+			padding: .5em;
+			font-size: 120%;
+		}
+
 		li.Task > ul { 
 			
 		}
@@ -104,15 +115,46 @@
 					items: '> li:not(.FirstItem)'
 				})
 				.droppable({
+					accept: '.Task',
 					drop: function(event, ui) {
 						$('.FirstItem', this).remove();
-
-
 						var task = $(ui.draggable);
 						if(!task.data('children')) {
 							task
 								.append(
 									$('<ul />')
+										.sortable({
+											revert: true, 
+											items: '> li:not(.FirstActionItem)'
+										})
+										.droppable({
+											accept: '.Action',
+											drop: function(event, ui) {
+												$('.FirstActionItem', this).remove();
+												var action = $(ui.draggable);
+												if(!action.data('children')) {
+													action
+														.append(
+															$('<ul />')
+																.sortable({
+																	revert: true,
+																	items: '> li:not(.FirstWorkItem)'
+																})
+																.droppable({
+																	accept: '.Work',
+																	drop: function(event, ui) {
+																		$('.FirstWorkItem', this).remove();
+																	}
+																})
+																.addClass('Works')
+																.append(
+																	$('<li />')
+																		.addClass('FirstWorkItem')
+																		.text('Drag Work Item Here')))
+														.data('children', true);
+												}
+											}
+										})
 										.addClass('Actions')
 										.append(
 											$('<li />')
@@ -123,10 +165,26 @@
 					}
 				});
 
-			$('#ItemTemplates li')
+			$('#ItemTemplates li.Task')
 				.draggable({
 					revertDuration: 250,
 					connectToSortable: '#ProjectTasks',
+					helper: 'clone',
+					revert: 'invalid'
+				});
+
+			$('#ItemTemplates li.Action')
+				.draggable({
+					revertDuration: 250,
+					connectToSortable: '.Actions',
+					helper: 'clone',
+					revert: 'invalid'
+				});
+
+			$('#ItemTemplates li.Work')
+				.draggable({
+					revertDuration: 250,
+					connectToSortable: '.Works',
 					helper: 'clone',
 					revert: 'invalid'
 				});
