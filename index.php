@@ -19,27 +19,34 @@
 			padding: 0;
 		}
 
-		UL.Tasks li { 
-			border: 1px solid #000;
+		UL.Tasks li {
 			list-style-type: none;
 			margin-bottom: .5em;
+		}
+
+		UL.Tasks li > div { 
+			border: 1px solid #000;
 			padding: .5em;
 			cursor: pointer;
 		}
 
-		li.Task {
+		UL.Actions { 
+			margin-top: .5em;
+		}
+
+		li.Task > div {
 			height: 2.5em;
 			background: #fff;
 			font-size: 140%;
 		}
 
-		li.Action { 
+		li.Action > div { 
 			height: 2.25em;
 			background: #e4e4e3;
 			font-size: 120%;
 		}
 
-		li.Work {
+		li.Work > div {
 			height: 2em;
 			background: #cbcccb;
 			font-size: 110%;
@@ -50,19 +57,19 @@
 			top: 33%;
 		}
 
-		#ItemTemplates li { 
+		#ItemTemplates li > div { 
 			text-align: right;
 		}
 
-		#ItemTemplates li.Task {
+		#ItemTemplates li.Task > div {
 			width: 128px;
 		}
 
-		#ItemTemplates li.Action {
+		#ItemTemplates li.Action > div { 
 			width: 104px;
 		}
 
-		#ItemTemplates li.Work {
+		#ItemTemplates li.Work > div{
 			width: 81px;
 		}
 
@@ -77,17 +84,42 @@
 			padding: .5em;
 			font-size: 140%;
 		}
+
+		#ProjectTasks li.FirstActionItem {
+			border: 1px dashed #000;
+			height: 2.25em;
+			padding: .5em;
+			font-size: 120%;
+		}
+
+		li.Task > ul { 
+			
+		}
 	</style>
 	<script>
 		$(function(){
 			$('#ProjectTasks')
 				.sortable({
 					revert: true,
-					items: 'li:not(.FirstItem)'
+					items: '> li:not(.FirstItem)'
 				})
 				.droppable({
 					drop: function(event, ui) {
-						$('.FirstItem', this).remove()
+						$('.FirstItem', this).remove();
+
+
+						var task = $(ui.draggable);
+						if(!task.data('children')) {
+							task
+								.append(
+									$('<ul />')
+										.addClass('Actions')
+										.append(
+											$('<li />')
+												.addClass('FirstActionItem')
+												.text('Drag Action Here')))
+								.data('children', true);
+						}
 					}
 				});
 
@@ -109,9 +141,9 @@
 		<div class="span-5 first">
 		    &nbsp;
 			<ul id="ItemTemplates" class="Tasks clear">
-				<li class="Task">Top Level Task</li>
-				<li class="Action">Action Name</li>
-				<li class="Work">Work Item</li>
+				<li class="Task"><div>Top Level Task</div></li>
+				<li class="Action"><div>Action Name</div></li>
+				<li class="Work"><div>Work Item</div></li>
 			</ul>
 		</div>
 		<div class="span-19 last">
