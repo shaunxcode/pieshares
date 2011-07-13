@@ -14,6 +14,16 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="style/blueprint/screen.css" type="text/css" media="all" />
 	<style>
+		#Header {
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		#Sidebar h3 {
+			margin: 0;
+			padding: 0;	
+		}
+
 		UL.Tasks { 
 			margin: 0;
 			padding: 0;
@@ -106,6 +116,12 @@
 		li.Task > ul { 
 			
 		}
+
+		.ProjectName {
+			font-weight: bold;
+			text-align: center;
+		}
+
 	</style>
 	<script>
 		$(function(){
@@ -195,19 +211,37 @@
 </head>
 <body>
 	<div class="container">
-		<div class="span-24 first last"><h1>PieShares</h1></div>
-		<div class="span-5 first">
-		    &nbsp;
-			<ul id="ItemTemplates" class="Tasks clear">
-				<li class="Task"><div>Top Level Task</div></li>
-				<li class="Action"><div>Action Name</div></li>
-				<li class="Work"><div>Work Item</div></li>
-			</ul>
+		<div class="span-24 first last" id="Header">
+			<div class="span-4 first"><h1>PieShares</h1></div>
+			<div class="span-17 ProjectName"><h1>Project Name</h1></div>
+			<div class="span-3 last">Settings/User/Exit</div>
 		</div>
-		<div class="span-19 last">
-			<ul id="ProjectTasks" class="Tasks">
-				<li class="FirstItem">Drag first task here</li>
-			</ul>
+		<div class="span-4 first" id="Sidebar">
+			<h3>Project</h3>
+			<div id="ProjectMenu">Project name etc.</div>
+			<h3>Users</h3>
+			<div id="UserMenu">
+				<ul><li>username</li><li>username</li></ul>
+			</div>
+			<h3>Contributions</h3>
+			<div id="ContributionMenu">
+				<ul><li>Type of contrib.</li><li>Type of Contrib.</li></ul>
+			</div>
+		</div>
+		<div class="span-20 last">
+			<div class="span-5 first">
+		   	 &nbsp;
+				<ul id="ItemTemplates" class="Tasks clear">
+					<li class="Task"><div>Top Level Task</div></li>
+					<li class="Action"><div>Action Name</div></li>
+					<li class="Work"><div>Work Item</div></li>
+				</ul>
+			</div>
+			<div class="span-15 last">
+				<ul id="ProjectTasks" class="Tasks">
+					<li class="FirstItem">Drag first task here</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>
