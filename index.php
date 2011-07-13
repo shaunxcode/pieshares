@@ -122,9 +122,68 @@
 			text-align: center;
 		}
 
+		.TaskTitle { 
+			float: left; 
+		}
+
+		.TaskTitle input {
+			font-size: inherit;
+		}
+
+		.TaskExpandCollapse { 
+			float: right; 
+			font-size: 75%;
+		}
 	</style>
 	<script>
 		$(function(){
+			var PS = {
+				localTaskId: 0,
+				tasks: {},
+
+				task: function(id, name, view) {
+					this.id = id;
+					this.name = name;
+					this.view = view;
+
+					var self = this;
+
+					this.view
+						.html(
+							$('<div />')
+								.addClass('TaskTitle')
+								.text(name)
+								.click(function() {
+									if(!self.editing) {
+										self.editing = true;
+										$(this)
+											.html(
+												$('<input />')
+													.val(self.name)
+													.keypress(function(evt) {
+														if(evt.keyCode == 13) {
+															self.name = $(this).val();
+															$(this).replaceWith(self.name);
+															self.editing = false;
+														}
+														if(evt.keyCode == 27) {
+															$(this).replaceWith(self.name);
+															self.editing = false;
+														}
+													}));
+
+										$('input', this).focus();
+									}
+								}))
+				},
+
+				newTask: function(taskEl) {
+					var view = $('> div', taskEl);
+					var id = 'task-' + PS.localTaskId++;
+					return PS.tasks[id] = new PS.task(id, view.text(), view);
+				}
+			};
+
 			$('#ProjectTasks')
 				.sortable({
 					revert: true,
@@ -136,6 +195,8 @@
 						$('.FirstItem', this).remove();
 						var task = $(ui.draggable);
 						if(!task.data('children')) {
+							PS.newTask(task);
+
 							task
 								.append(
 									$('<ul />')
@@ -205,7 +266,7 @@
 					revert: 'invalid'
 				});
 
-			$('ul, li').disableSelection();
+			//$('ul, li').disableSelection();
 		})
 	</script>
 </head>
