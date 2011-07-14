@@ -57,7 +57,7 @@
 				},
 
 				newTask: function(taskEl) {
-					var view = $('> div', taskEl);
+					var view = $('> .ItemTop', taskEl);
 					var id = 'task-' + PS.localTaskId++;
 					return PS.tasks[id] = new PS.task(id, view.text(), view);
 				},

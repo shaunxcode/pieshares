@@ -140,7 +140,7 @@
 			width: 94px;
 		}
 
-		#ItemTemplates li.Task .ItemBot {
+		li.Task .ItemBot {
 			background: #db902b;
 		}
 
@@ -209,28 +209,36 @@
 		}
 
 		#ProjectTasks > li.FirstItem { 
-			border: 1px dashed #000;
-			height: 2.5em;
-			padding: .5em;
-			font-size: 140%;
+			border: 1px solid #fff;
+			opacity: .5;
+			height: 43px;
+			text-align: center;
+			padding-top: 15px;
+			font-size: 20px;
+			background: #fff;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
 		}
 
 		#ProjectTasks li.FirstActionItem {
 			border: 1px dashed #000;
 			height: 2.25em;
 			padding: .5em;
-			font-size: 120%;
+			font-size: 14px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
 		}
 
 		#ProjectTasks li.FirstWorkItem {
 			border: 1px dashed #000;
 			height: 2.25em;
 			padding: .5em;
-			font-size: 120%;
-		}
-
-		li.Task > ul { 
-			
+			font-size: 12px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
 		}
 
 		.ProjectName {
