@@ -78,7 +78,7 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			width: inherit;
+			width: 100%;
 			height: inherit;
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
@@ -90,6 +90,7 @@
 			left: 0;
 			top: 0;
 			height: inherit;
+			width: 100%;
 			background: #fff;
 		}
 
