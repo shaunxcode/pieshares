@@ -248,6 +248,26 @@
 							function(){
 								$('.ItemEditHover').remove();
 							})
+						.append(
+							$('<div />')
+								.css({position: 'absolute', top: 48})
+								.html(
+									$('<textarea />'))
+								.append(
+									$('<div />')
+										.addClass('FormBox')
+										.append($('<label />').text('Assign To'))
+										.append(PS._userSelect()))
+								.append(
+									$('<div />')
+										.addClass('FormBox')
+										.append($('<label />').text('Unit'))
+										.append(PS._unitSelect()))
+								.append(
+									$('<div />')
+										.addClass('FormBoxLast')
+										.append($('<label />').text('Amount'))
+										.append($('<input />'))))							
 				},
 
 				newAction: function(task, actionEl) {

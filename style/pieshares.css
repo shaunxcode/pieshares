@@ -392,6 +392,10 @@
 			border: 1px solid #ccc;
 		}
 
+		.Action textarea {
+			width: 355px;
+		}
+
 		.Task label {
 			display: block;
 			font-size: 14px;
