@@ -1,0 +1,303 @@
+		#AppContainer { 
+			height: 100%;
+		}
+
+		#Header { 
+			background-image: url(../images/gradient-slice.png);
+			background-repeat: repeat-x;
+			height:85px;
+		}
+
+		#Header .container {
+
+			
+		}
+
+		#Footer { 
+			background-image: url(../images/gradient-slice-footer.png);
+			background-repeat: repeat-x;
+			height:49px;
+		}
+
+		#Sidebar {
+			position: relative;
+			height: 100%;
+		}
+
+		#Sidebar h3 {;
+			margin: 0;
+			padding: 0;
+			padding-left: 12px;
+			padding-top: 8px;	
+			cursor: pointer;
+			background-image: url(../images/menu-header-bg1.png);
+			height:26px;
+			margin-top:1em;
+			font-size: 16px;
+			color: #4e4e4e;
+			font-weight: bold;
+			margin-bottom:5px;
+		}
+
+		#SideBar ul {
+			list-style-type: none;	
+			padding-left: 10px;
+			font-weight: bold;
+		}
+		#SideBar li {
+			margin-bottom: 2px;
+		}
+		
+		UL.Tasks { 
+			margin: 0;
+			padding: 0;
+		}
+
+		UL.Tasks li {
+			list-style-type: none;
+			margin-bottom: .5em;
+		}
+
+		UL.Tasks li > div { 
+			cursor: pointer;
+		}
+
+		UL.Actions { 
+			margin-top: .5em;
+		}
+
+		UL.Works {
+			margin-top: .5em;
+		}
+
+		.ItemInner {
+			position: relative;
+		}
+
+		.ItemBot { 
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: inherit;
+			height: inherit;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+		}
+
+		.ItemTop { 
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: inherit;
+			background: #fff;
+			
+		}
+
+
+		li.Task > div {
+			height: 58px;
+			font-size: 20px;
+		}
+
+		li.Action > div { 
+			height:48px;
+			background: #e4e4e3;
+			font-size: 120%;
+		}
+
+		li.Work > div {
+			height: 40px;
+			background: #cbcccb;
+			font-size: 110%;
+		}
+
+		#TemplatesContainer { 
+			position: fixed;
+			top: 22%;
+			
+		}
+
+		#ItemTemplates {
+			
+		}
+
+		#ItemTemplates li img {
+			float: right;
+			margin-right: 6px;
+		}
+
+		#ItemTemplates li > div { 
+			text-align: left;
+		}
+
+
+	
+		#ItemTemplates li.Task > div {
+			width: 94px;
+		}
+
+		#ItemTemplates li.Task .ItemBot {
+			background: #db902b;
+		}
+
+		#ItemTemplates li.Task .ItemTop {
+			padding-left: 15px;
+			padding-top: 15px;
+			height: 43px;
+			width: 70px;
+		}
+
+
+
+		#ItemTemplates li.Action > div { 
+			width: 84px;
+		}
+
+		#ItemTemplates li.Action .ItemBot {
+			background: #b76027;
+		}
+
+		#ItemTemplates li.Action .ItemTop {
+			padding-left: 15px;
+			padding-top: 10px;
+			height: 38;
+			width: 60px;
+		}
+
+
+
+
+
+		#ItemTemplates li.Work > div{
+			width: 74px;
+		}
+
+		#ItemTemplates li.Work .ItemBot {
+			background: #aeaeae;
+		}
+
+		#ItemTemplates li.Work .ItemTop {
+			padding-left: 15px;
+			padding-top: 8px;
+			height: 32;
+			width: 50px;
+		}
+
+
+		#ProjectTasks { 
+			float: right;
+			padding:.5em;
+			width: 400px;
+		}
+
+		#ProjectTasks > li.FirstItem { 
+			border: 1px dashed #000;
+			height: 2.5em;
+			padding: .5em;
+			font-size: 140%;
+		}
+
+		#ProjectTasks li.FirstActionItem {
+			border: 1px dashed #000;
+			height: 2.25em;
+			padding: .5em;
+			font-size: 120%;
+		}
+
+		#ProjectTasks li.FirstWorkItem {
+			border: 1px dashed #000;
+			height: 2.25em;
+			padding: .5em;
+			font-size: 120%;
+		}
+
+		li.Task > ul { 
+			
+		}
+
+		.ProjectName {
+			position: relative;
+			font-weight: bold;
+			overflow: hidden;
+			height: 85px;
+		}
+
+		.ProjectName h1 {
+			padding:5px;
+			padding-left:20px;
+			padding-right: 20px;
+			position: relative;
+			font-size: 25px;
+			top: 48px;
+			margin: 0;
+			text-align: center;
+			cursor: pointer;
+			width: 200px;
+			margin-left: auto;
+			margin-right: auto;
+			
+			color: #4e4e4e;
+			-webkit-border-top-left-radius: 5px;
+			-webkit-border-top-right-radius: 5px;
+			-moz-border-radius-topleft: 5px;
+			-moz-border-radius-topright: 5px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border: 1px solid #ccc;
+			background: #fff;
+						
+		}
+
+		.TaskTitle, .ActionTitle, .WorkTitle { 
+			float: left;
+			width: 75%; 
+		}
+
+		input.NameInput {
+			font-size: inherit;
+			width: inherit;
+			height: inherit;
+			font-family: inherit;
+			border: 0;
+			background: #FFFFCC;
+			text-align: inherit;
+		}
+
+		.TaskExpandCollapse { 
+			float: right; 
+			font-size: 75%;
+		}
+
+		#WorkSpace { 
+			overflow: hidden;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			width: 788;
+			height: 100%;
+		}
+
+		#InnerWorkSpace { 
+			width: 2370px;
+			background: #ebedf0;
+			height: 100%;
+		}
+
+		.Section { 
+			float: left;
+		}
+
+		.SectionInner {
+			padding-left: 5px;
+		}
+
+		#UserSettingsMenu {
+			text-align: right;
+			padding-top:45px;
+			padding-right: 15px;
+		}
+
+		#UserSettingsMenu img {
+			margin-left: 3px;
+			cursor: pointer;
+		}

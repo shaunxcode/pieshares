@@ -27,6 +27,9 @@
 	},
 	"file_history":
 	[
+		"/Users/shaungilchrist/Dropbox/code/pieshares/index.php",
+		"/Users/shaungilchrist/Dropbox/code/pieshares/test.html",
+		"/Users/shaungilchrist/Dropbox/code/codechat/index.php",
 		"/Users/shaungilchrist/Dropbox/code/codechat/chat_poll.php",
 		"/Users/shaunxcode/Dropbox/code/codechat/index.html",
 		"/Users/shaunxcode/citydeals_stage/app/code/local/CityDeals/Cdapi/Helper/Simple.php",
@@ -47,6 +50,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Workspace",
 			"this.comet =",
 			"grid"
 		],
@@ -62,6 +66,13 @@
 		"use_buffer": false,
 		"whole_word": false,
 		"wrap": true
+	},
+	"folders":
+	{
+		"mount_points":
+		[
+			"/Users/shaungilchrist/Dropbox/code/pieshares"
+		]
 	},
 	"groups":
 	[
