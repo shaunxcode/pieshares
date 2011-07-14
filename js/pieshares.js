@@ -199,10 +199,13 @@
 
 			//$('ul, li').disableSelection();
 			var collapseTemplates = function() {
-				$('#ItemTemplates').css('overflow', 'hidden').animate({width: 0}, 200);
+				$('#ItemTemplates').css('overflow', 'hidden').animate({width: 0}, 200, function(){
+					$('#TemplatesContainer > span').hide();	
+				});
 			};
 
 			var expandTemplates = function() {
+				$('#TemplatesContainer > span').show();
 				$('#ItemTemplates').css('overflow', 'visible').animate({width: 190}, 300)
 			};
 

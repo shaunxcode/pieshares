@@ -67,19 +67,28 @@
 								<li class="Task">
 									<div class="ItemInner">
 										<div class="ItemBot"></div>
-										<div class="ItemTop"><span>Task</span> <img src="images/handle.png" alt="handle"/></div>
+										<div class="ItemTop">
+											<span>Task</span> 
+											<img src="images/handle.png" alt="handle"/>
+										</div>
 									</div>
 								</li>
 								<li class="Action">
 									<div class="ItemInner">
 										<div class="ItemBot"></div>
-										<div class="ItemTop"><span>Action</span> <img src="images/handle.png" alt="handle" /></div>
+										<div class="ItemTop">
+											<span>Action</span> 
+											<img src="images/handle.png" alt="handle" />
+										</div>
 									</div>
 								</li>
 								<li class="Work">
 									<div class="ItemInner">
 										<div class="ItemBot"></div>
-										<div class="ItemTop"><span>Work</span> <img src="images/handle.png" alt="handle" /></div>
+										<div class="ItemTop">
+											<span>Work</span> 
+											<img src="images/handle.png" alt="handle" />
+										</div>
 									</div>
 								</li>
 							</ul>

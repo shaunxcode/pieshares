@@ -91,7 +91,6 @@
 			top: 0;
 			height: inherit;
 			background: #fff;
-			
 		}
 
 
@@ -103,23 +102,27 @@
 		li.Action > div { 
 			height:48px;
 			background: #e4e4e3;
-			font-size: 120%;
+			font-size: 14px;
 		}
 
 		li.Work > div {
 			height: 40px;
 			background: #cbcccb;
-			font-size: 110%;
+			font-size: 12px;
 		}
 
 		#TemplatesContainer { 
 			position: fixed;
 			top: 22%;
-			
 		}
 
-		#ItemTemplates {
-			
+		#TemplatesContainer > span {
+			margin: .5em;
+			display: block;
+			color: #aeaeae;
+			font-size: 11px;
+			font-weight: bold;
+			margin-left: 1em;
 		}
 
 		#ItemTemplates li img {
@@ -142,13 +145,16 @@
 		}
 
 		#ItemTemplates li.Task .ItemTop {
-			padding-left: 15px;
+			padding-left: 10px;
 			padding-top: 15px;
 			height: 43px;
-			width: 70px;
+			width: 75px;
 		}
 
-
+		#ItemTemplates li.Task .ItemTop > span {
+			display: inline-block;
+			font-weight: bold;
+		}
 
 		#ItemTemplates li.Action > div { 
 			width: 84px;
@@ -159,13 +165,17 @@
 		}
 
 		#ItemTemplates li.Action .ItemTop {
-			padding-left: 15px;
+			padding-left: 10px;
 			padding-top: 10px;
 			height: 38;
-			width: 60px;
+			width: 65px;
 		}
 
-
+		#ItemTemplates li.Action .ItemTop > span {
+			display: inline-block;
+			padding-top:4px;
+			font-weight: bold;
+		}
 
 
 
@@ -175,13 +185,20 @@
 
 		#ItemTemplates li.Work .ItemBot {
 			background: #aeaeae;
+			border: 1px solid #aeaeae;
 		}
 
 		#ItemTemplates li.Work .ItemTop {
-			padding-left: 15px;
-			padding-top: 8px;
-			height: 32;
-			width: 50px;
+			padding-left: 10px;
+			padding-top: 6px;
+			height: 36px;
+			width: 57px;
+		}
+
+		#ItemTemplates li.Work .ItemTop > span {
+			display: inline-block;
+			padding-top:6px;
+			font-weight: bold;
 		}
 
 
