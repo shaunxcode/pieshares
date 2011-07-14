@@ -61,9 +61,19 @@
 										.addClass('ItemEditHover')
 										.append(
 											$('<span />')
-												.text('expand')
-												.click(function(){
-													$('.ItemInner, .ItemBot, .ItemTop', view.parent().parent()).animate({height: 200})
+												.text(view.data('expanded') ? 'collapse' : 'expand')
+												.click(function() {
+													$('.ItemInner, .ItemBot, .ItemTop', view.parent().parent())
+														.animate({
+															height: view.data('expanded') ? 58 : 200})
+													
+													if(!view.data('expanded')) {
+														$(this).text('collapse');
+														view.data('expanded', true);
+													} else {
+														$(this).text('expand');
+														view.data('expanded', false);
+													}
 												}))
 										.append(' | ')
 										.append(
