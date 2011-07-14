@@ -17,12 +17,17 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="jquery.scrollTo-min.js"></script>
 	<script type="text/javascript" src="js/pieshares.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			PS.name = <?php echo $file; ?>;
+		})
+	</script>
 </head>
 <body>
 	<div id="Header">
 		<div class="container">
 			<div class="span-4 first"><img src="images/logo-1.png" alt="PieShares"/></div>
-			<div class="span-16 ProjectName"><h1>Project Name</h1></div>
+			<div class="span-16 ProjectName"><h1><?php echo $file; ?></h1></div>
 			<div class="span-4 last">
 				<div id="UserSettingsMenu">
 					<img src="images/icon-user.png" alt="profile" />
