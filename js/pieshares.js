@@ -54,12 +54,34 @@
 								.addClass('TaskTitle')
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
+						.hover(function(){
+							$('> div', this)
+								.append(
+									$('<div />')
+										.addClass('ItemEditHover')
+										.append(
+											$('<span />')
+												.text('expand')
+												.click(function(){
+													$('.ItemInner, .ItemBot, .ItemTop', view.parent().parent()).animate({height: 200})
+												}))
+										.append(' | ')
+										.append(
+											$('<span />')
+												.text('remove')
+												.click(function(){
+													
+												})));
+						}, function(){
+							$('.ItemEditHover', this).remove();
+						})
 				},
 
 				newTask: function(taskEl) {
-					var view = $('> .ItemTop', taskEl);
+					var view = $('.ItemTop', taskEl);
+					$('img', view).remove();
 					var id = 'task-' + PS.localTaskId++;
-					return PS.tasks[id] = new PS.task(id, view.text(), view);
+					return PS.tasks[id] = new PS.task(id, 'Task', view);
 				},
 
 				action: function(id, name, view) {
