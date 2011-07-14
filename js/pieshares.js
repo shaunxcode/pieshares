@@ -81,7 +81,7 @@
 										$('<span />')
 											.text(view.data('expanded') ? 'collapse' : 'expand')
 											.click(function() {
-												$('>.ItemInner, >.ItemInner>.ItemBot, >ItemInner>.ItemTop', view.parent().parent())
+												$('>.ItemInner, >.ItemInner>.ItemBot, >.ItemInner>.ItemTop', view.parent().parent())
 													.animate({
 														height: view.data('expanded') ? toHeight : 200 + toHeight})
 												
@@ -158,7 +158,8 @@
 									$('<div />')
 										.addClass('FormBoxLast')
 										.append($('<label />').text('Amount'))
-										.append($('<input />'))));
+										.append($('<input />'))))
+						.append($('<div />').css('clear', 'both'));
 				},
 
 				_userSelect: function() {
