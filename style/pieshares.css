@@ -393,7 +393,12 @@
 		}
 
 		.Action textarea {
-			width: 355px;
+			width: 352px;
+		}
+
+		.Work textarea {
+			width: 331px;
+			height: 175px;
 		}
 
 		.Task label {

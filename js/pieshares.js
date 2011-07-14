@@ -319,6 +319,11 @@
 							function(){
 								$('.ItemEditHover').remove();
 							})
+						.append(
+							$('<div />')
+								.css({position: 'absolute', top: 40})
+								.html(
+									$('<textarea />')));
 
 				},
 
