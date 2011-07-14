@@ -8,11 +8,6 @@
 			height:85px;
 		}
 
-		#Header .container {
-
-			
-		}
-
 		#Footer { 
 			background-image: url(../images/gradient-slice-footer.png);
 			background-repeat: repeat-x;
@@ -323,7 +318,7 @@
 
 		.TaskTitle, .ActionTitle, .WorkTitle { 
 			float: left;
-			width: 75%; 
+			width: 90%; 
 		}
 
 		input.NameInput {

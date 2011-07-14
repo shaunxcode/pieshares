@@ -96,7 +96,7 @@
 						.hover(
 							PS._itemHover(self, 58), 
 							function(){
-								$('.ItemEditHover', this).remove();
+								$('.ItemEditHover').remove();
 							})
 				},
 
@@ -123,7 +123,7 @@
 						.hover(
 							PS._itemHover(self, 48), 
 							function(){
-								$('.ItemEditHover', this).remove();
+								$('.ItemEditHover').remove();
 							})
 				},
 
@@ -150,7 +150,7 @@
 						.hover(
 							PS._itemHover(self, 40), 
 							function(){
-								$('.ItemEditHover', this).remove();
+								$('.ItemEditHover').remove();
 							})
 
 				},
@@ -162,6 +162,18 @@
 					return PS.works[id] = new PS.work(id, 'Work', view);
 				}
 
+			};
+
+			var ActionItemPlaceHolder = function() {
+				return $('<li />')
+					.addClass('FirstActionItem')
+					.text('Drag Action Here');
+			};
+
+			var WorkItemPlaceHolder = function() { 
+				return $('<li />')
+					.addClass('FirstWorkItem')
+					.text('Drag Work Item Here');
 			};
 
 			$('#ProjectTasks')
@@ -183,7 +195,17 @@
 										.sortable({
 											revert: true, 
 											items: '> li:not(.FirstActionItem)', 
-											connectWith: '.Actions'
+											connectWith: '.Actions',
+											stop: function(event, ui) {
+											
+											},
+											remove: function(evt, ui) {
+												var oldList = $(evt.target);
+												if(oldList.children().length == 0) {
+													oldList.append(ActionItemPlaceHolder())
+												}												
+											}
+
 										})
 										.droppable({
 											accept: '.Action',
@@ -199,7 +221,16 @@
 																.sortable({
 																	revert: true,
 																	items: '> li:not(.FirstWorkItem)',
-																	connectWith: '.Works'
+																	connectWith: '.Works',
+																	receive: function(evt, ui) {
+																		$('.FirstWorkItem', $(ui.item).parent()).remove();
+																	}, 
+																	remove: function(evt, ui) {
+																		var oldList = $(evt.target);
+																		if(oldList.children().length == 0) {
+																			oldList.append(WorkItemPlaceHolder())
+																		}
+																	}
 																})
 																.droppable({
 																	accept: '.Work',
@@ -213,19 +244,13 @@
 																	}
 																})
 																.addClass('Works')
-																.append(
-																	$('<li />')
-																		.addClass('FirstWorkItem')
-																		.text('Drag Work Item Here')))
+																.append(WorkItemPlaceHolder()))
 														.data('children', true);
 												}
 											}
 										})
 										.addClass('Actions')
-										.append(
-											$('<li />')
-												.addClass('FirstActionItem')
-												.text('Drag Action Here')))
+										.append(ActionItemPlaceHolder()))
 								.data('children', true);
 						}
 					}
