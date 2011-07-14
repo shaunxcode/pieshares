@@ -102,13 +102,11 @@
 
 		li.Action > div { 
 			height:48px;
-			background: #e4e4e3;
 			font-size: 14px;
 		}
 
 		li.Work > div {
 			height: 40px;
-			background: #cbcccb;
 			font-size: 12px;
 		}
 
@@ -161,7 +159,7 @@
 			width: 84px;
 		}
 
-		#ItemTemplates li.Action .ItemBot {
+		li.Action .ItemBot {
 			background: #b76027;
 		}
 
@@ -184,9 +182,8 @@
 			width: 74px;
 		}
 
-		#ItemTemplates li.Work .ItemBot {
+		li.Work .ItemBot {
 			background: #aeaeae;
-			border: 1px solid #aeaeae;
 		}
 
 		#ItemTemplates li.Work .ItemTop {
@@ -226,6 +223,32 @@
 			border-bottom-right-radius: 5px;
 		}
 
+		#ProjectTasks li.Action .ItemTop {
+			margin-left: 10px;
+			width: 362px;	
+			padding-left: 10px;
+
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-topright: 5px;
+			-moz-border-radius-bottomright: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		#ProjectTasks li.Work .ItemTop {
+			margin-left: 10px;
+			width: 344px;	
+			padding-left: 10px;
+
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-topright: 5px;
+			-moz-border-radius-bottomright: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
 		#ProjectTasks > li.FirstItem { 
 			border: 1px solid #fff;
 			opacity: .5;
@@ -240,20 +263,26 @@
 		}
 
 		#ProjectTasks li.FirstActionItem {
-			border: 1px dashed #000;
-			height: 2.25em;
-			padding: .5em;
+			border: 1px solid #fff;
+			opacity: .5;
+			height: 38px;
+			text-align: center;
+			padding-top: 10px;
 			font-size: 14px;
+			background: #fff;
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			border-radius: 5px;
 		}
 
 		#ProjectTasks li.FirstWorkItem {
-			border: 1px dashed #000;
-			height: 2.25em;
-			padding: .5em;
+			border: 1px solid #fff;
+			opacity: .5;
+			height: 34px;
+			padding-top: 6px;
+			text-align: center;
 			font-size: 12px;
+			background: #fff;
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			border-radius: 5px;

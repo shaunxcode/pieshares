@@ -11,6 +11,8 @@
 					return function() {
 						if(!self.editing) {
 							self.editing = true;
+							$('.ItemEditHover', self.view).remove();
+
 							$(this)
 								.html(
 									$('<input />')
@@ -41,6 +43,43 @@
 					};
 				},
 
+				_itemHover: function(self, toHeight) {
+					return function(){
+						var view = self.view;
+						if(self.editing) {
+							return;
+						}
+
+						$('> div', this)
+							.append(
+								$('<div />')
+									.addClass('ItemEditHover')
+									.append(
+										$('<span />')
+											.text(view.data('expanded') ? 'collapse' : 'expand')
+											.click(function() {
+												$('>.ItemInner, >.ItemInner>.ItemBot, >ItemInner>.ItemTop', view.parent().parent())
+													.animate({
+														height: view.data('expanded') ? toHeight : 200})
+												
+												if(!view.data('expanded')) {
+													$(this).text('collapse');
+													view.data('expanded', true);
+												} else {
+													$(this).text('expand');
+													view.data('expanded', false);
+												}
+											}))
+									.append(' | ')
+									.append(
+										$('<span />')
+											.text('remove')
+											.click(function(){
+												
+											})));
+					}
+				},
+
 				task: function(id, name, view) {
 					this.id = id;
 					this.name = name;
@@ -54,37 +93,11 @@
 								.addClass('TaskTitle')
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
-						.hover(function(){
-							$('> div', this)
-								.append(
-									$('<div />')
-										.addClass('ItemEditHover')
-										.append(
-											$('<span />')
-												.text(view.data('expanded') ? 'collapse' : 'expand')
-												.click(function() {
-													$('.ItemInner, .ItemBot, .ItemTop', view.parent().parent())
-														.animate({
-															height: view.data('expanded') ? 58 : 200})
-													
-													if(!view.data('expanded')) {
-														$(this).text('collapse');
-														view.data('expanded', true);
-													} else {
-														$(this).text('expand');
-														view.data('expanded', false);
-													}
-												}))
-										.append(' | ')
-										.append(
-											$('<span />')
-												.text('remove')
-												.click(function(){
-													
-												})));
-						}, function(){
-							$('.ItemEditHover', this).remove();
-						})
+						.hover(
+							PS._itemHover(self, 58), 
+							function(){
+								$('.ItemEditHover', this).remove();
+							})
 				},
 
 				newTask: function(taskEl) {
@@ -107,12 +120,18 @@
 								.addClass('ActionTitle')
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
+						.hover(
+							PS._itemHover(self, 48), 
+							function(){
+								$('.ItemEditHover', this).remove();
+							})
 				},
 
 				newAction: function(task, actionEl) {
-					var view = $('> div', actionEl);
+					var view = $('.ItemTop', actionEl);
+					$('img', view).remove();
 					var id = 'action-' + PS.localTaskId++;
-					return PS.actions[id] = new PS.action(id, view.text(), view);
+					return PS.actions[id] = new PS.action(id, 'Action', view);
 				},
 
 				work: function(id, name, view) {
@@ -128,12 +147,19 @@
 								.addClass('WorkTitle')
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
+						.hover(
+							PS._itemHover(self, 40), 
+							function(){
+								$('.ItemEditHover', this).remove();
+							})
+
 				},
 
 				newWork: function(action, workEl) {
-					var view = $('> div', workEl);
+					var view = $('.ItemTop', workEl);
+					$('img', view).remove();
 					var id = 'work-' + PS.localTaskId++;
-					return PS.works[id] = new PS.work(id, view.text(), view);
+					return PS.works[id] = new PS.work(id, 'Work', view);
 				}
 
 			};
