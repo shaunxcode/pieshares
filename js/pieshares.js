@@ -4,13 +4,30 @@
 				actingAsUserName: 'Erik F.',
 				localTaskId: 0,
 				name: 'Project Name',
-				userCount: 1,
+				userCount: 2,
 				taskCount: 0,
 				actionCount: 0,
 				workCount: 0,
 				tasks: {},
 				actions: {},
 				works: {},
+				users: {
+					'shaung': 'Shaun G.', 
+					'erikf': 'Erik F.'
+				},
+
+				skills: {
+					1: 'Programming',
+					2: 'Design', 
+					3: 'UX', 
+					4: 'Sysadmin',
+					5: 'Clerical'
+				},
+
+				units: {
+					1: 'Hourly',
+					2: 'Investment'
+				},
 
 				_nameEditor: function(self) {
 					return function() {
@@ -51,6 +68,7 @@
 				_itemHover: function(self, itemType, toHeight) {
 					return function(){
 						var view = self.view;
+						$('.ItemEditHover').remove();
 						if(self.editing) {
 							return;
 						}
@@ -120,7 +138,67 @@
 							$('<div />')
 								.css({position: 'absolute', top: 60})
 								.html(
-									$('<textarea />')));
+									$('<textarea />'))
+								.append(
+									$('<div />')
+										.addClass('FormBox')
+										.append($('<label />').text('Assign To'))
+										.append(PS._userSelect()))
+								.append(
+									$('<div />')
+										.addClass('FormBox')
+										.append($('<label />').text('Requires Skill'))
+										.append(PS._skillSelect()))
+								.append(
+									$('<div />')
+										.addClass('FormBox')
+										.append($('<label />').text('Unit'))
+										.append(PS._unitSelect()))
+								.append(
+									$('<div />')
+										.addClass('FormBoxLast')
+										.append($('<label />').text('Amount'))
+										.append($('<input />'))));
+				},
+
+				_userSelect: function() {
+					var sel = $('<select />');
+
+					$.each(PS.users, function(user, name) {
+						sel.append(
+							$('<option />')
+								.val(user)
+								.text(name));		
+					});
+
+					return sel;
+				},
+
+
+				_skillSelect: function() {
+					var sel = $('<select />');
+					
+					$.each(PS.skills, function(id, name) {
+						sel.append(
+							$('<option />')
+								.val(id)
+								.text(name));		
+					});
+
+					return sel;
+				},
+
+				_unitSelect: function() {
+					var sel = $('<select />');
+					
+					$.each(PS.units, function(id, name) {
+						sel.append(
+							$('<option />')
+								.val(id)
+								.text(name));		
+					});
+
+					return sel;
 				},
 
 				newTask: function(taskEl) {

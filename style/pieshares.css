@@ -388,6 +388,36 @@
 
 		.Task textarea { 
 			width: 368px;
-			height: 100px;
+			height: 120px;
 			border: 1px solid #ccc;
+		}
+
+		.Task label {
+			display: block;
+			font-size: 14px;
+		}
+
+		.Task label:after { 
+			content: ':';
+		}
+
+		.Task .FormBox {
+			float: left;
+			margin-right: 10px;
+		}
+
+		.Task .FormBoxLast { 
+			float: left;
+			margin-right: 0;
+		}
+
+		.Task .FormBoxLast input {
+			width: 53px;
+			margin-top: 7px;
+			border: 1px solid #ccc;
+		}
+
+		.Task select { 
+			font-size: 14px;
+			font-family: inherit;
 		}
