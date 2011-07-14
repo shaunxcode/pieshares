@@ -1,8 +1,9 @@
 <?php
 	$file = isset($_GET['file']) ? substr($_GET['file'], 1) : false;
 	if(!$file) {
-		header('location:index.php?file=/Project Name');// . uniqid());
-		die();
+		$file = 'Project Name';
+	//	header('location:index.php?file=/Project Name');// . uniqid());
+//		die();
 	}
 
 ?>
