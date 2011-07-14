@@ -96,6 +96,7 @@
 					this.id = id;
 					this.name = name;
 					this.view = view;
+					this.actions = [];
 
 					var self = this;
 
@@ -134,6 +135,10 @@
 
 				removeTask: function(taskId) {
 					if(PS.tasks[taskId]) {
+						$.each(PS.tasks[taskId].actions, function(i, actionId){
+							PS.removeAction(actionId);	
+						});
+
 						PS.taskCount--;
 						PS.tasks[taskId].view.parent().parent().remove();
 						delete PS.tasks[taskId];
@@ -150,6 +155,7 @@
 					this.id = id;
 					this.name = name;
 					this.view = view;
+					this.works = [];
 
 					var self = this;
 
@@ -170,6 +176,8 @@
 					var view = $('.ItemTop', actionEl);
 					$('img', view).remove();
 					var id = 'action-' + PS.localTaskId++;
+					task.actions.push(id);
+
 					PS.actionCount++;
 					PS.updateCounts();
 					return PS.actions[id] = new PS.action(id, 'Action', view);
@@ -178,6 +186,10 @@
 				removeAction: function(actionId) {
 					
 					if(PS.actions[actionId]) {
+						$.each(PS.actions[actionId].works, function(i, workId){
+							PS.removeWork(workId);	
+						});
+
 						PS.actionCount--;
 						var list = PS.actions[actionId].view.parent().parent().parent();
 						PS.actions[actionId].view.parent().parent().remove();
@@ -216,6 +228,8 @@
 					var view = $('.ItemTop', workEl);
 					$('img', view).remove();
 					var id = 'work-' + PS.localTaskId++;
+					action.works.push(id);
+
 					PS.workCount++;
 					PS.updateCounts();
 					return PS.works[id] = new PS.work(id, 'Work', view);
