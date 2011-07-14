@@ -40,11 +40,11 @@
 					<ul>
 						<li>Overview</li>
 						<li>Task Tree</li>
-						<li>Users(n)</li>
+						<li>Users(<span id="UserCount">n</span>)</li>
 						<li>Items<ul>
-							<li>Tasks(n)</li>
-							<li>Actions(n)</li>
-							<li>Work(n)</li></ul><li>
+							<li>Tasks(<span id="TaskCount">n</span>)</li>
+							<li>Actions(<span id="ActionCount">n</span>)</li>
+							<li>Work(<span id="WorkCount">n</span>)</li></ul><li>
 					</ul>
 				</div>
 			<h3 id="UsersMenuHeading">Active Users</h3>
@@ -96,7 +96,7 @@
 					</div>
 					<div class="span-15 last">
 						<ul id="ProjectTasks" class="Tasks">
-							<li class="FirstItem">Drag first task here</li>
+							<li class="FirstItem">Drag Task Here</li>
 						</ul>
 					</div>
 				</div>

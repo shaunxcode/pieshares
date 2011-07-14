@@ -1,8 +1,13 @@
 		var PS;
 		$(function(){
 			PS = {
+				actingAsUserName: 'Erik F.',
 				localTaskId: 0,
 				name: 'Project Name',
+				userCount: 1,
+				taskCount: 0,
+				actionCount: 0,
+				workCount: 0,
 				tasks: {},
 				actions: {},
 				works: {},
@@ -43,14 +48,14 @@
 					};
 				},
 
-				_itemHover: function(self, toHeight) {
+				_itemHover: function(self, itemType, toHeight) {
 					return function(){
 						var view = self.view;
 						if(self.editing) {
 							return;
 						}
 
-						$('> div', this)
+						$('> div:first', this)
 							.append(
 								$('<div />')
 									.addClass('ItemEditHover')
@@ -60,7 +65,7 @@
 											.click(function() {
 												$('>.ItemInner, >.ItemInner>.ItemBot, >ItemInner>.ItemTop', view.parent().parent())
 													.animate({
-														height: view.data('expanded') ? toHeight : 200})
+														height: view.data('expanded') ? toHeight : 200 + toHeight})
 												
 												if(!view.data('expanded')) {
 													$(this).text('collapse');
@@ -75,9 +80,16 @@
 										$('<span />')
 											.text('remove')
 											.click(function(){
-												
+												PS['remove' + itemType](self.id);
 											})));
 					}
+				},
+
+				updateCounts: function() {
+					$('#UserCount').text(PS.userCount);	
+					$('#TaskCount').text(PS.taskCount);		
+					$('#ActionCount').text(PS.actionCount);		
+					$('#WorkCount').text(PS.workCount);		
 				},
 
 				task: function(id, name, view) {
@@ -87,6 +99,7 @@
 
 					var self = this;
 
+					
 					this.view
 						.html(
 							$('<div />')
@@ -94,17 +107,43 @@
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
 						.hover(
-							PS._itemHover(self, 58), 
+							PS._itemHover(self, 'Task', 58), 
 							function(){
 								$('.ItemEditHover').remove();
 							})
+						.append(
+							$('<span />')
+								.addClass('CreatedBy')
+								.text('Created By: ' + PS.actingAsUserName))
+						.append(
+							$('<div />')
+								.css({position: 'absolute', top: 60})
+								.html(
+									$('<textarea />')));
 				},
 
 				newTask: function(taskEl) {
 					var view = $('.ItemTop', taskEl);
 					$('img', view).remove();
 					var id = 'task-' + PS.localTaskId++;
+					PS.taskCount++;
+					PS.updateCounts();
 					return PS.tasks[id] = new PS.task(id, 'Task', view);
+				},
+
+
+				removeTask: function(taskId) {
+					if(PS.tasks[taskId]) {
+						PS.taskCount--;
+						PS.tasks[taskId].view.parent().parent().remove();
+						delete PS.tasks[taskId];
+
+						if($('#ProjectTasks').children().length == 0) {
+							$('#ProjectTasks').append(TaskItemPlaceHolder());
+						}
+
+						PS.updateCounts();
+					}
 				},
 
 				action: function(id, name, view) {
@@ -121,7 +160,7 @@
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
 						.hover(
-							PS._itemHover(self, 48), 
+							PS._itemHover(self, 'Action', 48), 
 							function(){
 								$('.ItemEditHover').remove();
 							})
@@ -131,7 +170,25 @@
 					var view = $('.ItemTop', actionEl);
 					$('img', view).remove();
 					var id = 'action-' + PS.localTaskId++;
+					PS.actionCount++;
+					PS.updateCounts();
 					return PS.actions[id] = new PS.action(id, 'Action', view);
+				},
+
+				removeAction: function(actionId) {
+					
+					if(PS.actions[actionId]) {
+						PS.actionCount--;
+						var list = PS.actions[actionId].view.parent().parent().parent();
+						PS.actions[actionId].view.parent().parent().remove();
+						delete PS.actions[actionId];
+
+						if(list.children().length == 0) {
+							list.append(ActionItemPlaceHolder());
+						}
+
+						PS.updateCounts();
+					}
 				},
 
 				work: function(id, name, view) {
@@ -148,7 +205,7 @@
 								.text(name)
 								.dblclick(PS._nameEditor(self)))
 						.hover(
-							PS._itemHover(self, 40), 
+							PS._itemHover(self, 'Work', 40), 
 							function(){
 								$('.ItemEditHover').remove();
 							})
@@ -159,9 +216,33 @@
 					var view = $('.ItemTop', workEl);
 					$('img', view).remove();
 					var id = 'work-' + PS.localTaskId++;
+					PS.workCount++;
+					PS.updateCounts();
 					return PS.works[id] = new PS.work(id, 'Work', view);
-				}
+				},
 
+				removeWork: function(workId) {
+					
+					if(PS.works[workId]) {
+						PS.workCount--;
+						var list = PS.works[workId].view.parent().parent().parent();
+						PS.works[workId].view.parent().parent().remove();
+						delete PS.works[workId];
+
+						if(list.children().length == 0) {
+							list.append(WorkItemPlaceHolder());
+						}
+
+						PS.updateCounts();
+					}
+				},
+
+			};
+
+			var TaskItemPlaceHolder = function() {
+				return $('<li />')
+					.addClass('FirstItem')
+					.text('Drag Task Here');
 			};
 
 			var ActionItemPlaceHolder = function() {
@@ -307,4 +388,6 @@
 			})
 
 			$('.ProjectName h1').click(PS._nameEditor(PS));
+
+			PS.updateCounts();
 		});

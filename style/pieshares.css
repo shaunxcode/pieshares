@@ -321,6 +321,12 @@
 			width: 90%; 
 		}
 
+		.Task .CreatedBy {
+			font-weight: normal;
+			font-size: 15px;
+			color: #bbb;
+		}
+
 		input.NameInput {
 			font-size: inherit;
 			width: inherit;
@@ -378,4 +384,10 @@
 		.ItemEditHover span {
 			text-decoration: underline;
 			color: #0000ff;
+		}
+
+		.Task textarea { 
+			width: 368px;
+			height: 100px;
+			border: 1px solid #ccc;
 		}
