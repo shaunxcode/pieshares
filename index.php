@@ -48,11 +48,11 @@
 							<ul>
 								<li>Overview</li>
 								<li>Task Tree</li>
-								<li>Users(<span id="UserCount">n</span>)</li>
+								<li>Users (<span id="UserCount">n</span>)</li>
 								<li>Items<ul>
-									<li>Tasks(<span id="TaskCount">n</span>)</li>
-									<li>Actions(<span id="ActionCount">n</span>)</li>
-									<li>Work(<span id="WorkCount">n</span>)</li></ul><li>
+									<li>Tasks (<span id="TaskCount">n</span>)</li>
+									<li>Actions (<span id="ActionCount">n</span>)</li>
+									<li>Work (<span id="WorkCount">n</span>)</li></ul><li>
 							</ul>
 						</div>
 					<h3 id="UsersMenuHeading">Active Users</h3>
