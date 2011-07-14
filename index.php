@@ -107,12 +107,12 @@
 				</div>
 				<div id="UsersSection" class="span-20 first last Section">
 					<div class="SectionInner">
-					Stuff about users
+					<img src="images/users.png" />
 					</div>
 				</div>
 				<div id="ContributionsSection" class="span-20 first last Section">
 					<div class="SectionInner">
-					Stuff about contributions
+					<img src="images/contributions.png" />
 					</div>
 				</div>
 			</div>

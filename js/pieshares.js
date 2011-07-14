@@ -506,5 +506,7 @@
 
 			$('.ProjectName h1').dblclick(PS._nameEditor(PS));
 
+			$('#WorkSpace').scrollTo('#ProjectSection', 0);
+
 			PS.updateCounts();
 		});
