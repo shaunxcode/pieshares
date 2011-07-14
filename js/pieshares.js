@@ -504,7 +504,7 @@
 				$('#WorkSpace').scrollTo('#ContributionsSection', 800);
 			})
 
-			$('.ProjectName h1').click(PS._nameEditor(PS));
+			$('.ProjectName h1').dblclick(PS._nameEditor(PS));
 
 			PS.updateCounts();
 		});
