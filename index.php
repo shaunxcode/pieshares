@@ -1,5 +1,5 @@
 <?php
-	$file = isset($_GET['file']) ? $_GET['file'] : false;
+	$file = isset($_GET['file']) ? substr($_GET['file'], 1) : false;
 	if(!$file) {
 		header('location:index.php?file=' . uniqid());
 		die();
@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="js/pieshares.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			PS.name = <?php echo $file; ?>;
+			PS.name = <?php echo json_encode($file); ?>;
 		})
 	</script>
 </head>
