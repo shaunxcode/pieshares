@@ -1,2 +1,5 @@
 shared_writable_dirs: [/data]
-index_list: [index.php]  
+index_list: [index.php] 
+
+url_rewrites:
+    - ^(.*\/?)$ /index.php?file=$1 
