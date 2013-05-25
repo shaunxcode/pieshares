@@ -1,0 +1,10 @@
+{
+	"name": "pieshares",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "latest"
+	},
+	"devDependencies": {
+		"wisp": "latest"
+	}
+}
